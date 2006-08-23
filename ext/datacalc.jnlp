@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- JNLP File for Data Calculator -->
+<jnlp
+  spec="1.0+"
+  codebase="http://www.megatome.com/webstart"
+  href="datacalc.jnlp">
+  <information>
+    <title>Data Calculator Application</title>
+    <vendor>Megatome Technologies</vendor>
+    <homepage href="docs/help.html"/>
+    <description>Data Calculator Application</description>
+    <description kind="short">How much is your personal data worth?</description>
+    <icon href="images/calc3.gif"/>
+    <!--
+    <icon kind="splash" href="images/splash.gif"/>
+    -->
+    <offline-allowed/>
+  </information>
+  <security>
+      <all-permissions/>
+  </security>
+  <resources>
+    <j2se version="1.5"/>
+    <jar href="lib/DataCalc.jar"/>
+    <jar href="lib/MacUtils.jar"/>
+  </resources>
+  <application-desc main-class="org.megatome.Main"/>
+</jnlp>

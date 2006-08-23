@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="DataCalculator">
+
+	<target name="all" depends="init, cleanall, dist" />
+
+	<target name="init">
+		<property file="override.properties" />
+		<property file="build.properties" />
+		<fail message="Keystore password not specified. Does override.properties exist?" unless="keystore.password" />
+	</target>
+
+	<target name="compile" depends="init">
+		<mkdir dir="${build.dir}" />
+		<javac srcdir="${src.dir}" destdir="${build.dir}">
+			<classpath>
+				<fileset dir="${lib.dir}">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+
+
+	<target name="dist" depends="compile, jar, jnlp"/>
+
+	<target name="jar" depends="init, compile">
+		<mkdir dir="${dist.dir}" />
+		<jar jarfile="${dist.dir}/${jar.name}">
+			<fileset dir="${build.dir}">
+				<include name="**/*.class" />
+				<exclude name="org/megatome/util/CheckAndLogRepaintManager.class" />
+			</fileset>
+			<fileset dir="${src.dir}">
+				<include name="**/*.png" />
+				<include name="**/*.jpg" />
+				<include name="**/*.gif" />
+				<include name="**/*.properties" />
+			</fileset>
+			<manifest>
+				<attribute name="Main-Class" value="${main.class}" />
+				<attribute name="Class-Path" value="${macutils.jar}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="jnlp" depends="init, jar">
+		<mkdir dir="${jnlp.dist.lib.dir}" />
+		<mkdir dir="${jnlp.dist.images.dir}" />
+		<copy file="${jnlp.file}" todir="${jnlp.dist.dir}" />
+		<copy file="${jnlp.icon}" todir="${jnlp.dist.images.dir}" />
+		<copy file="${dist.dir}/${jar.name}" todir="${jnlp.dist.lib.dir}" />
+		<signjar jar="${jnlp.dist.lib.dir}/${jar.name}" alias="datacalc" keystore="${keystore.file}" storepass="${keystore.password}" />
+		<copy file="${lib.dir}/${macutils.jar}" todir="${dist.dir}" />
+		<copy file="${lib.dir}/${macutils.jar}" todir="${jnlp.dist.lib.dir}" />
+		<signjar jar="${jnlp.dist.lib.dir}/${macutils.jar}" alias="datacalc" keystore="${keystore.file}" storepass="${keystore.password}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="cleanall" depends="init, clean">
+		<delete dir="${dist.dir}" />
+		<delete>
+			<fileset dir="${src.dir}">
+				<include name="**/*.class" />
+			</fileset>
+		</delete>
+	</target>
+
+</project>
