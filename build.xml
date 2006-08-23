@@ -43,7 +43,7 @@
 		</jar>
 	</target>
 
-	<target name="jnlp" depends="init, jar">
+	<target name="jnlp" depends="init, jar" if="build.jnlp">
 		<mkdir dir="${jnlp.dist.lib.dir}" />
 		<mkdir dir="${jnlp.dist.images.dir}" />
 		<copy file="${jnlp.file}" todir="${jnlp.dist.dir}" />
