@@ -448,7 +448,7 @@ public final class MainGUI extends JFrame implements ActionListener, MacOSEventL
     public void showAboutDialog() {
         String aboutText = Messages.getString("MainGUI.aboutText"); //$NON-NLS-1$
         JOptionPane.showMessageDialog(this, aboutText, Messages.getString("MainGUI.aboutTitle"), //$NON-NLS-1$
-                JOptionPane.PLAIN_MESSAGE);
+                JOptionPane.PLAIN_MESSAGE, ImageLoader.getImageIcon(Messages.getString("aboutIcon"))); //$NON-NLS-1$
     }
 
     public void actionPerformed(ActionEvent evt) {
