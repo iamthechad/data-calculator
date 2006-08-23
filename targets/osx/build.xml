@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="DataCalculator Bundler for OS X">
+
+	<taskdef name="jarbundler" classname="net.sourceforge.jarbundler.JarBundler" />
+
+	<target name="all" depends="init, cleanall, dist" />
+
+	<target name="init">
+		<property file="override.properties" />
+		<property file="build.properties" />
+	</target>
+
+	<target name="dist" depends="buildmain, bundle" />
+
+	<target name="buildmain" depends="init">
+		<ant inheritAll="false" dir="${project.base}" />
+	</target>
+
+	<target name="bundle" depends="init, buildmain">
+		<mkdir dir="${dist.dir}" />
+		<jarbundler dir="${dist.dir}" name="${app.name}" mainclass="${main.class}"
+			icon="${app.icon}"
+			infostring="1.0"
+			version="1.0"
+			jvmversion="1.5*"
+			shortname="DataCalculator">
+			<jarfileset dir="${project.dist.dir}">
+				<include name="**/*.jar" />
+			</jarfileset>
+			<jarfileset dir="${project.lib.dir}">
+				<include name="**/MacUtils.jar"/>
+			</jarfileset>
+		</jarbundler>
+	</target>
+
+	<target name="cleanall" depends="init">
+		<delete dir="${dist.dir}" />
+	</target>
+
+</project>
