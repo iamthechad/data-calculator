@@ -15,6 +15,9 @@
     <icon kind="splash" href="images/splash.gif"/>
     -->
     <offline-allowed/>
+    <shortcut online="false">
+    	<desktop/>
+    </shortcut>
   </information>
   <security>
       <all-permissions/>
