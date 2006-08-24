@@ -1,0 +1,20 @@
+AppleJavaExtensions is released with the following README:
+----------------------------------------------------------
+AppleJavaExtensions
+v 1.2
+
+This is a pluggable jar of stub classes representing the new Apple eAWT and eIO
+APIs for Java 1.4 on Mac OS X.  The purpose of these stubs is to allow for
+compilation of eAWT- or eIO-referencing code on platforms other than Mac OS X. 
+The jar file is enclosed in a zip archive for easy expansion on other platforms.
+ 
+
+These stubs are not intended for the runtime classpath on non-Mac platforms. 
+Please see the OSXAdapter sample for how to write cross-platform code that uses
+eAWT.
+
+
+[07/16/2004]
+-----------------------------------------------------------
+
+MacUtils was written by the same author as DataCalculator, and is not restricted by a license.
