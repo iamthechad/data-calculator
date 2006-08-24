@@ -1,0 +1,4 @@
+The files in this location can be used to create a Mac OS X application and package installer.
+
+The build script relies on the JarBundler Ant Task, available from http://informagen.com/JarBundler/.
+Running the build script against the "all" target will generate DataCalculator.app, which can then be built into a package installer using the saved PackageMaker project file.

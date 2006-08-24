@@ -1,0 +1,9 @@
+Notes on building and deploying DataCalculator:
+
+Building - 
+* Spin.jar is only required for building the application - if you want to be warned of possible Event Dispatch Thread issues while running DataCalculator, add it and org.megatome.util.CheckAndLogRepaintManager to your classpath.
+* AppleJavaExtensions.jar is only required when compiling the project with Ant in a Windows environment.
+* The bundled download does not include the required keystore file for creating the signed Java Web Start jars. It's available in the Subversion repository, but I'm not going to tell you the password for my self signed cert. If you need to create Java Web Start files, use your own cert.
+
+Running -
+* DataCalc.jar and MacUtils.jar are both required at runtime for the calculator to work correctly. This means, yes, that you'll have a jar called MacUtils when running under Windows. Sorry. I may fix that in the future.
