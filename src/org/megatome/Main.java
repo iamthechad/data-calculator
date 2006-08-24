@@ -30,15 +30,6 @@ public final class Main {
             e.printStackTrace();
         }
         System.setProperty("apple.laf.useScreenMenuBar", "true"); //$NON-NLS-1$ //$NON-NLS-2$
-        try {
-            Class<?> c = Class
-                    .forName("org.megatome.util.CheckAndLogRepaintManager"); //$NON-NLS-1$
-            RepaintManager rm = (RepaintManager)c.newInstance();
-            RepaintManager.setCurrentManager(rm);
-        } catch (Exception e) {
-            // This is ok - it means we're running in the client and the spin
-            // jar is not available.
-        }
         new MainGUI().setVisible(true);
     }
 }
