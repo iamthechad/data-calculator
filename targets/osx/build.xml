@@ -6,6 +6,7 @@
 	<target name="all" depends="init, cleanall, dist" />
 
 	<target name="init">
+		<property file="../../global.properties"/>
 		<property file="override.properties" />
 		<property file="build.properties" />
 	</target>
@@ -20,15 +21,15 @@
 		<mkdir dir="${dist.dir}" />
 		<jarbundler dir="${dist.dir}" name="${app.name}" mainclass="${main.class}"
 			icon="${app.icon}"
-			infostring="1.0"
-			version="1.0"
+			infostring="${version}"
+			version="${version}"
 			jvmversion="1.5*"
-			shortname="DataCalculator">
+			shortname="${product.name}">
 			<jarfileset dir="${project.dist.dir}">
 				<include name="**/*.jar" />
 			</jarfileset>
 			<jarfileset dir="${project.lib.dir}">
-				<include name="**/MacUtils.jar"/>
+				<include name="**/${macutils.jar}"/>
 			</jarfileset>
 		</jarbundler>
 	</target>

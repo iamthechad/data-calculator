@@ -4,6 +4,7 @@
 	<target name="all" depends="init, cleanall, dist" />
 
 	<target name="init">
+		<property file="global.properties"/>
 		<property file="override.properties" />
 		<property file="build.properties" />
 		<fail message="Keystore password not specified. Does override.properties exist?" unless="keystore.password" />
@@ -20,8 +21,7 @@
 		</javac>
 	</target>
 
-
-	<target name="dist" depends="compile, jar, jnlp"/>
+	<target name="dist" depends="compile, jar, jnlp" />
 
 	<target name="jar" depends="init, compile">
 		<mkdir dir="${dist.dir}" />
@@ -41,6 +41,39 @@
 				<attribute name="Class-Path" value="${macutils.jar}" />
 			</manifest>
 		</jar>
+	</target>
+
+	<target name="package" depends="init, cleanall, dist">
+		<mkdir dir="${package.dir}" />
+		<mkdir dir="${package.dir.tmp}" />
+		<copy todir="${package.dir.tmp}" includeEmptyDirs="false">
+			<fileset dir="${basedir}">
+				<include name="license.txt" />
+				<include name="README"/>
+				<include name="build.xml" />
+				<include name="global.properties"/>
+				<include name="build.properties" />
+				<include name="dist/**" />
+				<exclude name="dist/jnlp/**" />
+				<include name="ext/**" />
+				<exclude name="ext/keystore" />
+
+				<exclude name="**/build/**" />
+				<exclude name="**/classes/**" />
+				<exclude name="override.properties" />
+				<include name="src/**" />
+				<include name="lib/**" />
+				<include name="targets/**" />
+				<exclude name="targets/**/package/**" />
+				<exclude name="targets/**/dist/**" />
+				<exclude name="**/.DS_Store" />
+			</fileset>
+		</copy>
+		<tar destfile="${package.dir}/${package.name}.tar.gz" compression="gzip" longfile="gnu">
+			<tarfileset dir="${package.dir.tmp}" preserveLeadingSlashes="true">
+			</tarfileset>
+		</tar>
+		<delete dir="${package.dir.tmp}" />
 	</target>
 
 	<target name="jnlp" depends="init, jar" if="build.jnlp">
