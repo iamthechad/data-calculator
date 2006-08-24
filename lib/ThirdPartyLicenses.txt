@@ -17,4 +17,4 @@ eAWT.
 [07/16/2004]
 -----------------------------------------------------------
 
-MacUtils was written by the same author as DataCalculator, and is not restricted by a license.
+MacUtils was written by the same author as DataCalculator, and is released under the Apache 2 OS license.
