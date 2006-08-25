@@ -7,7 +7,6 @@
 		<property file="global.properties"/>
 		<property file="override.properties" />
 		<property file="build.properties" />
-		<fail message="Keystore password not specified. Does override.properties exist?" unless="keystore.password" />
 	</target>
 
 	<target name="compile" depends="init">
@@ -77,6 +76,7 @@
 	</target>
 
 	<target name="jnlp" depends="init, jar" if="build.jnlp">
+		<fail message="Keystore password not specified. Does override.properties exist?" unless="keystore.password" />
 		<mkdir dir="${jnlp.dist.lib.dir}" />
 		<mkdir dir="${jnlp.dist.images.dir}" />
 		<copy file="${jnlp.file}" todir="${jnlp.dist.dir}" />
