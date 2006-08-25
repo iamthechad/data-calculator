@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="DataCalculator Bundler for Windows">
+
+	<taskdef name="nsisant" classname="net.sf.nsisant.Task" />
+	
+	<target name="all" depends="init, cleanall, dist" />
+
+	<target name="init">
+		<property file="../../global.properties"/>
+		<property file="override.properties" />
+		<property file="build.properties" />
+	</target>
+
+	<target name="dist" depends="buildmain, bundle" />
+
+	<target name="buildmain" depends="init">
+		<ant inheritAll="false" dir="${project.base}" />
+	</target>
+
+	<!-- This doesn't work quite right for some reason -->
+	<target name="bundle" depends="init, buildmain">
+		<mkdir dir="${dist.dir}" />
+		<nsisant script="${nsis.script}"
+	    	out="${dist.dir}/${setup.file}" verbosity="4"/>
+	</target>
+
+	<target name="cleanall" depends="init">
+		<delete dir="${dist.dir}" />
+	</target>
+
+</project>

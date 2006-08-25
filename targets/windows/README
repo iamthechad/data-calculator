@@ -1,0 +1,5 @@
+The files in this location can be used to create a Windows installer.
+
+NSIS must be installed for the installer creation to be successful. NSIS can be downloaded from http://nsis.sourceforge.net/.
+The build script relies on the NSIS Ant Task, available from http://sourceforge.net/projects/nsisant/.
+Running the build script against the "all" target will generate setup.exe.
