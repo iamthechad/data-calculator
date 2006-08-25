@@ -46,7 +46,7 @@ Var JAVA_VER
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile setup.exe
+OutFile DataCalcSetup.exe
 InstallDir "$PROGRAMFILES\Data Calculator"
 CRCCheck on
 XPStyle on
