@@ -1,7 +1,7 @@
 package org.megatome.data;
 
 /*
- * Copyright 2006 Megatome Technologies 
+ * Copyright 2007 Megatome Technologies 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,4 +36,10 @@ public final class DataTypeSupport {
 
     static final String NOTE = DataTypeResourceLoader.getString("DataType.5"); //$NON-NLS-1$
     static final String BUTTON_TEXT = DataTypeResourceLoader.getString("DataType.6"); //$NON-NLS-1$
+    
+    static final String REQUEST_HEADER = DataTypeResourceLoader.getString("DataType.requestHeader"); //$NON-NLS-1$
+    static final String DESCRIPTION_HEADER =DataTypeResourceLoader.getString("DataType.descriptionHeader"); //$NON-NLS-1$
+    static final String PROBABLE_SOURCE_HEADER = DataTypeResourceLoader.getString("DataType.probableSourceHeader"); //$NON-NLS-1$
+    static final String COMMERCIAL_SOURCE_HEADER = DataTypeResourceLoader.getString("DataType.commercialSourceHeader"); //$NON-NLS-1$
+    static final String NOTE_HEADER = DataTypeResourceLoader.getString("DataType.noteHeader"); //$NON-NLS-1$
 }

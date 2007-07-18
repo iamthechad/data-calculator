@@ -1,7 +1,7 @@
 package org.megatome;
 
 /*
- * Copyright 2006 Megatome Technologies 
+ * Copyright 2007 Megatome Technologies 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,8 @@ package org.megatome;
  * See the License for the specific language governing permissions and 
  * limitations under the License.
  */
+
+import java.lang.reflect.InvocationTargetException;
 
 import javax.swing.*;
 
@@ -30,6 +32,17 @@ public final class Main {
             e.printStackTrace();
         }
         System.setProperty("apple.laf.useScreenMenuBar", "true"); //$NON-NLS-1$ //$NON-NLS-2$
-        new MainGUI().setVisible(true);
+        try {
+            SwingUtilities.invokeAndWait(new Runnable() {
+				@Override
+				public void run() {
+			        new MainGUI().setVisible(true);
+				}
+            });
+        } catch (InvocationTargetException ex) {
+            ex.printStackTrace();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
     }
 }

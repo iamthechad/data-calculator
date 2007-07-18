@@ -1,7 +1,7 @@
 package org.megatome.swing;
 
 /*
- * Copyright 2006 Megatome Technologies 
+ * Copyright 2007 Megatome Technologies 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ import java.text.NumberFormat;
 import javax.swing.*;
 import javax.swing.text.*;
 
-import org.megatome.data.DataType;
+import org.megatome.data.DataTypes;
+import org.megatome.data.IDataType;
 import org.megatome.util.ImageLoader;
 import org.megatome.util.Messages;
 import org.megatome.util.Operation;
@@ -147,37 +148,37 @@ public final class MainGUI extends JFrame implements ActionListener, MacOSEventL
         gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         jPanel.add(generalInfoLabel, gridBagConstraints);
 
-        buildAndAddDataButton(DataType.ADDRESS, 0, 1, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.ADDRESS.getDataType(), 0, 1, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.ZIPCODE, 1, 1, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.ZIPCODE.getDataType(), 1, 1, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.PAST_ADDRESSES, 2, 1, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.PAST_ADDRESSES.getDataType(), 2, 1, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.DATE_OF_BIRTH, 3, 1, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.DATE_OF_BIRTH.getDataType(), 3, 1, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.MARRIAGE, 0, 2, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.MARRIAGE.getDataType(), 0, 2, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.DIVORCE, 1, 2, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.DIVORCE.getDataType(), 1, 2, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.EDUCATION, 2, 2, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.EDUCATION.getDataType(), 2, 2, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.EMPLOYMENT, 3, 2, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.EMPLOYMENT.getDataType(), 3, 2, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.PUBLISHED_PHONE, 0, 3, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.PUBLISHED_PHONE.getDataType(), 0, 3, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.UNPUBLISHED_PHONE, 1, 3, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.UNPUBLISHED_PHONE.getDataType(), 1, 3, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.CELLULAR_PHONE, 2, 3, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.CELLULAR_PHONE.getDataType(), 2, 3, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.PAST_PHONES, 3, 3, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.PAST_PHONES.getDataType(), 3, 3, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.RELATIVES, 0, 4, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.RELATIVES.getDataType(), 0, 4, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.NEIGHBORS, 1, 4, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.NEIGHBORS.getDataType(), 1, 4, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.REGISTERED_URL, 2, 4, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.REGISTERED_URL.getDataType(), 2, 4, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.SSN, 3, 4, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.SSN.getDataType(), 3, 4, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
 
         // Financial buttons
@@ -192,29 +193,29 @@ public final class MainGUI extends JFrame implements ActionListener, MacOSEventL
         gridBagConstraints.insets = insets_10_5_0_0;
         jPanel.add(financialLabel, gridBagConstraints);
 
-        buildAndAddDataButton(DataType.CREDIT, 0, 6, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.CREDIT.getDataType(), 0, 6, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.REAL_ESTATE, 1, 6, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.REAL_ESTATE.getDataType(), 1, 6, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.BANKRUPTCY, 2, 6, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.BANKRUPTCY.getDataType(), 2, 6, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.WORKERS_COMP, 3, 6, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.WORKERS_COMP.getDataType(), 3, 6, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.ASSETS, 0, 7, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.ASSETS.getDataType(), 0, 7, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.ASSETS_SEIZED, 1, 7, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.ASSETS_SEIZED.getDataType(), 1, 7, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.SHAREHOLDER, 2, 7, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.SHAREHOLDER.getDataType(), 2, 7, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.EXECUTIVE_AFFILIATION, 3, 7,
+        buildAndAddDataButton(DataTypes.EXECUTIVE_AFFILIATION.getDataType(), 3, 7,
                 insets_5_5_5_5, GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.OWN_AIRCRAFT, 0, 8, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.OWN_AIRCRAFT.getDataType(), 0, 8, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.OWN_BOAT, 1, 8, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.OWN_BOAT.getDataType(), 1, 8, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.OWN_VEHICLE, 2, 8, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.OWN_VEHICLE.getDataType(), 2, 8, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.OWN_BUSINESS, 3, 8, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.OWN_BUSINESS.getDataType(), 3, 8, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
 
         // Legal Buttons
@@ -228,13 +229,13 @@ public final class MainGUI extends JFrame implements ActionListener, MacOSEventL
         gridBagConstraints.insets = insets_10_5_0_0;
         jPanel.add(legalLabel, gridBagConstraints);
 
-        buildAndAddDataButton(DataType.LAWSUITS, 0, 10, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.LAWSUITS.getDataType(), 0, 10, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.FELONY, 1, 10, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.FELONY.getDataType(), 1, 10, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.MISDEMEANOR, 2, 10, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.MISDEMEANOR.getDataType(), 2, 10, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.SEX_OFFENDER, 3, 10, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.SEX_OFFENDER.getDataType(), 3, 10, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
 
         // License Buttons
@@ -248,29 +249,29 @@ public final class MainGUI extends JFrame implements ActionListener, MacOSEventL
         gridBagConstraints.gridwidth = 4;
         jPanel.add(licenseLabel, gridBagConstraints);
 
-        buildAndAddDataButton(DataType.DRIVER_LICENSE, 0, 12, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.DRIVER_LICENSE.getDataType(), 0, 12, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.MOTOR_VEHICLE, 1, 12, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.MOTOR_VEHICLE.getDataType(), 1, 12, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.LIST_OF_VEHICLES, 2, 12, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.LIST_OF_VEHICLES.getDataType(), 2, 12, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.ACCIDENT_RECORD, 3, 12, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.ACCIDENT_RECORD.getDataType(), 3, 12, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.AIRCRAFT_LICENSE, 0, 13, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.AIRCRAFT_LICENSE.getDataType(), 0, 13, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.DEA_LICENSE, 1, 13, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.DEA_LICENSE.getDataType(), 1, 13, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.HUNT_FISH_LICENSE, 2, 13,
+        buildAndAddDataButton(DataTypes.HUNT_FISH_LICENSE.getDataType(), 2, 13,
                 insets_5_5_5_5, GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.PROFESSIONAL_LICENSE, 3, 13,
+        buildAndAddDataButton(DataTypes.PROFESSIONAL_LICENSE.getDataType(), 3, 13,
                 insets_5_5_5_5, GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.INDUST_ACCRED, 0, 14, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.INDUST_ACCRED.getDataType(), 0, 14, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.MERCHANT_VESSEL, 1, 14, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.MERCHANT_VESSEL.getDataType(), 1, 14, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.CONCEAL_WEAPON, 2, 14, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.CONCEAL_WEAPON.getDataType(), 2, 14, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.FIREARMS_LICENSE, 3, 14, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.FIREARMS_LICENSE.getDataType(), 3, 14, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
 
         // Political Buttons
@@ -284,9 +285,9 @@ public final class MainGUI extends JFrame implements ActionListener, MacOSEventL
         gridBagConstraints.gridwidth = 4;
         jPanel.add(politicalLabel, gridBagConstraints);
 
-        buildAndAddDataButton(DataType.VOTER_REGISTRATION, 0, 16,
+        buildAndAddDataButton(DataTypes.VOTER_REGISTRATION.getDataType(), 0, 16,
                 insets_5_5_5_5, GridBagConstraints.HORIZONTAL, jPanel);
-        buildAndAddDataButton(DataType.MILITARY_RECORD, 1, 16, insets_5_5_5_5,
+        buildAndAddDataButton(DataTypes.MILITARY_RECORD.getDataType(), 1, 16, insets_5_5_5_5,
                 GridBagConstraints.HORIZONTAL, jPanel);
 
         // Operation button panel
@@ -399,7 +400,7 @@ public final class MainGUI extends JFrame implements ActionListener, MacOSEventL
         this.pack();
     }
 
-    private DataButton buildAndAddDataButton(DataType dataType, int gridx,
+    private DataButton buildAndAddDataButton(IDataType dataType, int gridx,
             int gridy, Insets insets, int gridFill, JPanel panel) {
         DataButton button = new DataButton(dataType, this);
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
@@ -455,9 +456,9 @@ public final class MainGUI extends JFrame implements ActionListener, MacOSEventL
         if (evt.getSource() instanceof DataButton) {
             DataButton db = (DataButton)evt.getSource();
             this.previousValue = this.displayedValue;
-            DataType dt = db.getDataType();
+            IDataType dt = db.getDataType();
             this.displayedValue = Float.parseFloat(dt.getDataValue());
-            this.valueJTF.setValue(new Float(this.displayedValue));
+            this.valueJTF.setValue(Float.valueOf(this.displayedValue));
             if (this.detailsDlg != null) {
                 this.detailsDlg.updateDetails(dt.getImagePath(), dt
                         .toHTMLString());
@@ -470,7 +471,7 @@ public final class MainGUI extends JFrame implements ActionListener, MacOSEventL
                 this.currentOperation);
         this.displayedValue = this.totalValue;
         this.previousValue = 0F;
-        this.valueJTF.setValue(new Float(this.totalValue));
+        this.valueJTF.setValue(Float.valueOf(this.totalValue));
     }
 
     private float performCalculation(float operand1, float operand2,

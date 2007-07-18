@@ -1,7 +1,7 @@
 package org.megatome.swing;
 
 /*
- * Copyright 2006 Megatome Technologies 
+ * Copyright 2007 Megatome Technologies 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,17 +58,7 @@ public final class DataDetailsDialog extends JDialog {
         this.detailsArea = new JEditorPane();
         this.detailsArea.setContentType("text/html"); //$NON-NLS-1$
         this.detailsArea.setEditable(false);
-        this.detailsArea.addHyperlinkListener(new HyperlinkListener() {
-            public void hyperlinkUpdate(HyperlinkEvent evt) {
-                if (evt.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
-                    try {
-                        BrowserLauncher.openURL(evt.getURL().toString());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
+        this.detailsArea.addHyperlinkListener(new DetailsHyperlinkListener());
         this.jsp = new JScrollPane(this.detailsArea);
         
         this.getContentPane().setBackground(this.detailsArea.getBackground());
@@ -87,4 +77,15 @@ public final class DataDetailsDialog extends JDialog {
         this.detailsArea.setCaretPosition(0);
     }
 
+    public static class DetailsHyperlinkListener implements HyperlinkListener {
+        public void hyperlinkUpdate(HyperlinkEvent evt) {
+            if (evt.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
+                try {
+                    BrowserLauncher.openURL(evt.getURL().toString());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

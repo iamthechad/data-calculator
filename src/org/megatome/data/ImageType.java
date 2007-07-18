@@ -1,7 +1,7 @@
-package org.megatome.util;
+package org.megatome.data;
 
 /*
- * Copyright 2006 Megatome Technologies 
+ * Copyright 2007 Megatome Technologies 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,8 @@ package org.megatome.util;
  * limitations under the License.
  */
 
-import org.megatome.data.DataTypeResourceLoader;
 
-public enum ImageType {
+enum ImageType {
     POLITICAL (DataTypeResourceLoader.getString("image.political")), //$NON-NLS-1$
     INFORMATION (DataTypeResourceLoader.getString("image.info")), //$NON-NLS-1$
     FINANCIAL (DataTypeResourceLoader.getString("image.financial")), //$NON-NLS-1$

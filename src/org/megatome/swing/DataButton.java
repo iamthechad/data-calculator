@@ -1,7 +1,7 @@
 package org.megatome.swing;
 
 /*
- * Copyright 2006 Megatome Technologies 
+ * Copyright 2007 Megatome Technologies 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import org.megatome.data.DataType;
+import org.megatome.data.IDataType;
 
 public final class DataButton extends JButton {
     private static final long serialVersionUID = -4556617132061455328L;
 
-    private DataType dataType = null;
+    private IDataType dataType = null;
 
-    public DataButton(final DataType dataType,
+    public DataButton(final IDataType dataType,
             final ActionListener listener) {
         super(dataType.getButtonText());
         setDataType(dataType);
         this.addActionListener(listener);
     }
 
-    public void setDataType(final DataType dataType) {
+    public void setDataType(final IDataType dataType) {
         this.dataType = dataType;
         this.setToolTipText(dataType.getDataTypeName());
     }
 
-    public DataType getDataType() {
+    public IDataType getDataType() {
         return this.dataType;
     }
 }

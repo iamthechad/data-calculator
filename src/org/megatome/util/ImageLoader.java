@@ -1,7 +1,7 @@
 package org.megatome.util;
 
 /*
- * Copyright 2006 Megatome Technologies 
+ * Copyright 2007 Megatome Technologies 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,12 +42,7 @@ public final class ImageLoader {
     }
     
     public static Image getImage(final String imagePath) {
-        ImageIcon icon = getImageIcon(imagePath);
-        if (icon != null) {
-            return icon.getImage();
-        }
-        
-        return null;
+        return getImageIcon(imagePath).getImage();
     }
 
 }

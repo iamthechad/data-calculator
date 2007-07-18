@@ -1,7 +1,7 @@
 package org.megatome.data;
 
 /*
- * Copyright 2006 Megatome Technologies 
+ * Copyright 2007 Megatome Technologies 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ package org.megatome.data;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-public final class DataTypeResourceLoader {
+final class DataTypeResourceLoader {
 
     private static final String BUNDLE_NAME = "org.megatome.data.datatype"; //$NON-NLS-1$
 
@@ -43,4 +43,32 @@ public final class DataTypeResourceLoader {
             return '!' + key + '!';
         }
     }
+
+	public static String getDataTypeName(String resourcePrefix) {
+		return getString(resourcePrefix + DataTypeSupport.DATA_TYPE_NAME);
+	}
+
+	public static String getDataValue(String resourcePrefix) {
+		return getString(resourcePrefix + DataTypeSupport.DATA_VALUE);
+	}
+
+	public static String getDescription(String resourcePrefix) {
+		return getString(resourcePrefix + DataTypeSupport.DESCRIPTION);
+	}
+
+	public static String getProbableSource(String resourcePrefix) {
+		return getString(resourcePrefix + DataTypeSupport.PROBABLE_SOURCE);
+	}
+
+	public static String getCommercialSource(String resourcePrefix) {
+		return getString(resourcePrefix + DataTypeSupport.COMMERCIAL_SOURCE);
+	}
+
+	public static String getNote(String resourcePrefix) {
+		return getString(resourcePrefix + DataTypeSupport.NOTE);
+	}
+
+	public static String getButtonText(String resourcePrefix) {
+		return getString(resourcePrefix + DataTypeSupport.BUTTON_TEXT);
+	}
 }
