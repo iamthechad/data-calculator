@@ -18,7 +18,6 @@ package org.megatome.swing;
 
 import java.awt.BorderLayout;
 import java.awt.Point;
-import java.io.IOException;
 
 import javax.swing.JDialog;
 import javax.swing.JEditorPane;
@@ -29,7 +28,6 @@ import javax.swing.WindowConstants;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 
-import org.megatome.util.BrowserLauncher;
 import org.megatome.util.ImageLoader;
 import org.megatome.util.Messages;
 import org.megatome.util.SimpleBrowserLauncher;
