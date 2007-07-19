@@ -32,6 +32,7 @@ import javax.swing.event.HyperlinkListener;
 import org.megatome.util.BrowserLauncher;
 import org.megatome.util.ImageLoader;
 import org.megatome.util.Messages;
+import org.megatome.util.SimpleBrowserLauncher;
 
 public final class DataDetailsDialog extends JDialog {
     private static final long serialVersionUID = -5882169225857039416L;
@@ -80,11 +81,12 @@ public final class DataDetailsDialog extends JDialog {
     public static class DetailsHyperlinkListener implements HyperlinkListener {
         public void hyperlinkUpdate(HyperlinkEvent evt) {
             if (evt.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
-                try {
-                    BrowserLauncher.openURL(evt.getURL().toString());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                //try {
+                    //BrowserLauncher.openURL(evt.getURL().toString());
+                	SimpleBrowserLauncher.openURL(evt.getURL().toString());
+                //} catch (IOException e) {
+                //    e.printStackTrace();
+                //}
             }
         }
     }
