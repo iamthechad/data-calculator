@@ -34,7 +34,7 @@ public final class Main {
         System.setProperty("apple.laf.useScreenMenuBar", "true"); //$NON-NLS-1$ //$NON-NLS-2$
         try {
             SwingUtilities.invokeAndWait(new Runnable() {
-				@Override
+				//@Override
 				public void run() {
 			        new MainGUI().setVisible(true);
 				}
