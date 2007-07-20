@@ -4,7 +4,7 @@
 Name "Data Calculator"
 # Defines
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 1.0
+!define VERSION 1.1
 !define COMPANY "Megatome Technologies"
 !define URL http://www.megatome.com/data-calculator
 !define GET_JAVA "http://www.java.com"
@@ -46,12 +46,12 @@ Var JAVA_VER
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile DataCalcSetup.exe
+OutFile DataCalcSetup_${VERSION}.exe
 InstallDir "$PROGRAMFILES\Data Calculator"
 CRCCheck on
 XPStyle on
 ShowInstDetails show
-VIProductVersion 1.0.0.0
+VIProductVersion 1.1.0.0
 VIAddVersionKey ProductName "Data Calculator"
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
@@ -71,7 +71,7 @@ Section -Main SEC0000
     File images\calc3.ico
     SetOutPath $INSTDIR
     CreateShortcut "$DESKTOP\$(^Name).lnk" $JAVA_HOME\bin\javaw.exe "-jar $\"$INSTDIR\DataCalc.jar$\"" "$INSTDIR\calc3.ico"
-    ;SetOutPath $SMPROGRAMS\$StartMenuGroup
+    SetOutPath $SMPROGRAMS\$StartMenuGroup
     CreateShortcut "$SMPROGRAMS\$StartMenuGroup\$(^Name).lnk" $JAVA_HOME\bin\javaw.exe "-jar $\"$INSTDIR\DataCalc.jar$\"" "$INSTDIR\calc3.ico"
     WriteRegStr HKLM "${REGKEY}\Components" Main 1
 SectionEnd
