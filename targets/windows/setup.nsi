@@ -108,7 +108,8 @@ done${UNSECTION_ID}:
 
 # Uninstaller sections
 Section /o un.Main UNSEC0000
-    Delete /REBOOTOK "$DESKTOP\Data Calculator.lnk"
+    Delete /REBOOTOK "$DESKTOP\$(^Name).lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\$(^Name).lnk"
     Delete /REBOOTOK $INSTDIR\MacUtils.jar
     Delete /REBOOTOK $INSTDIR\DataCalc.jar
     Delete /REBOOTOK $INSTDIR\calc3.ico
